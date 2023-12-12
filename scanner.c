@@ -10,7 +10,7 @@ char *scanner(void)
 	size_t len = 0;
 	ssize_t nread;
 
-	if (isatty(SRDIN_FILENO))
+	if (isatty(STDIN_FILENO))
 		ppr("$ ", 2);
 	nread = getline(&line, &len, stdin);
 	if (nread == -1)

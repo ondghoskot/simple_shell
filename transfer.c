@@ -39,7 +39,7 @@ char **transfer(char *l)
 	while (t)
 	{
 		c[j] = _strdup(t);
-		t = strtok(NULL, DLM);
+		t = strtok(NULL, dlm);
 		j++;
 	}
 	free(l);
