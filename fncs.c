@@ -26,6 +26,7 @@ void imFree(char **sa)
 	{
 		free(sa[x]);
 		sa[x] = NULL;
+		x++;
 	}
 	free(sa);
 	sa = NULL;

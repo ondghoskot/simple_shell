@@ -12,7 +12,7 @@ extern char **environ;
 
 char *scanner(void);
 int _strcmp(char *s1, char *s2);
-char *_strdup(char *str);
+char *_strdup(char *src);
 char **transfer(char *l);
 int executer(char **c, char **argv);
 
