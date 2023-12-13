@@ -59,7 +59,7 @@ char *hPath(char *thepath)
  */
 char *intoa(int i)
 {
-	char frame[26];
+	char frame[20];
 	int n, first, last;
 	char temp;
 
@@ -107,5 +107,6 @@ void _perror(char *tag, char *c, int ind)
 	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, c, _strlen(c));
 	write(STDERR_FILENO, error, _strlen(error));
+
 	free(indice);
 }
