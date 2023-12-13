@@ -69,7 +69,7 @@ char *intoa(int i)
 	while (i > 0)
 	{
 		frame[n++] = (i % 10) + '0';
-		n = n / 10;
+		i = i / 10;
 	}
 	frame[n] = '\0';
 
@@ -80,8 +80,8 @@ char *intoa(int i)
 		temp = frame[first];
 		frame[first] = frame[last];
 		frame[last] = temp;
-		first ++;
-		last --;
+		first++;
+		last--;
 	}
 
 	return (_strdup(frame));

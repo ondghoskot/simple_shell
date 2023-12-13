@@ -11,12 +11,12 @@ int _strcmp(char *s1, char *s2)
 	int i = 0;
 
 	while (s1[i] != '\0' && s2[i] != '\0')
-	{       
+	{
 		if (s1[i] != s2[i])
-		break;  
-		i++;    
-	}       
-	return (s1[i] - s2[i]); 
+		break;
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }
 
 /**
@@ -26,25 +26,25 @@ int _strcmp(char *s1, char *s2)
  */
 char *_strdup(char *src)
 {
-	int i;  
+	int i;
 	int size = 0;
-	char *ptr = NULL; 
+	char *ptr = NULL;
 
-	i = 0;  
+	i = 0;
 	if (src == NULL)
-		return (NULL); 
+		return (NULL);
 	while (src[size] != '\0')
-		size++; 
+		size++;
 	ptr = (char *) malloc((size + 1) * sizeof(char));
 
 	if (ptr != NULL)
-	{       
+	{
 		while (i <= size)
-		{       
-			ptr[i] = src[i]; 
-			i++;    
-		}       
-	}       
+		{
+			ptr[i] = src[i];
+			i++;
+		}
+	}
 	return (ptr);
 }
 

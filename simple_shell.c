@@ -9,7 +9,7 @@ int main(int ac, char **av)
 {
 	char *l = NULL, **c = NULL;
 	int i = 0, j = 1, ind = 0;
-	
+
 	(void) ac;
 	for (; j > 0; j++)
 	{

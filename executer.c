@@ -4,6 +4,7 @@
  * executer - function that executes the commands
  * @c: pointer to given command
  * @argv: CLA vector of args
+ * @ind: indice
  * Return: exit status
  */
 int executer(char **c, char **argv, int ind)
