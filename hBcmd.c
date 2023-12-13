@@ -8,33 +8,42 @@
 
 int bccheck(char *cmd)
 {
-	char *bcmd[] = {
-	"exit", "env", "setenv", "cd", NULL
-	};
-	int i = 0;
+char *bcmd[] = {
+"exit", "env", "setenv", "cd", NULL
+};
+int i = 0;
 
-	while (bcmd[i])
-	{
-		if (_strcmp(cmd, bcmd[i]) == 0)
-		{
-			return (1);
-		}
-	}
-	return (0);
+while (bcmd[i])
+{
+if (_strcmp(cmd, bcmd[i]) == 0)
+{
+return (1);
+}
+}
+return (0);
 }
 
 /**
- * bhcmd - a function that handle checked builtin cmds
+ * printenv - a function that exit the sshell
  * Return: an int type
- * @hbcmd: the command we need to check
- * @st: the exit status
+ * @prtcmd: the command to free
+ * @st: the status of the command
  */
-void bhcmd(char **hbcmd, int *st)
+void printenv(int *st, char **prtcmd)
 {
-	if (_strcmp(hbcmd[0], "env") == 0)
-		printenv(st, hbcmd);
-	else if (_strcmp(hbcmd[0], "exit") == 0)
-		exitTheShell(st, hbcmd);
+if (_strcmp(hbcmd[0], "env") == 0)
+printenv(st, hbcmd);
+else if (_strcmp(hbcmd[0], "exit") == 0)
+exitTheShell(st, hbcmd);
+int j = 0;
+while (environ[j])
+{
+ppr(environ[j], _strlen(environ[j]));
+ppr("\n", 1);
+j++;
+}
+(*st) = 0;
+imFree(prtcmd);
 }
 
 /**
@@ -50,20 +59,15 @@ exit(*st);
 }
 
 /**
- * printenv - a function that exit the sshell
+ * bhcmd - a function that handle checked builtin cmds
  * Return: an int type
- * @prtcmd: the command to free
- * @st: the status of the command
+ * @hbcmd: the command we need to check
+ * @st: the exit status
  */
-void printenv(int *st, char **prtcmd)
+void bhcmd(char **hbcmd, int *st)
 {
-int j = 0;
-while (environ[j])
-{
-ppr(environ[j], _strlen(environ[j]));
-ppr("\n", 1);
-j++;
-}
-(*st) = 0;
-imFree(prtcmd);
+if (_strcmp(hbcmd[0], "env") == 0)
+printenv(st, hbcmd);
+else if (_strcmp(hbcmd[0], "exit") == 0)
+exitTheShell(st, hbcmd);
 }
