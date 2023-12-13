@@ -29,10 +29,10 @@ int executer(char **c, char **argv, int ind)
 	}
 	else
 	{
-		free(command);
-		command = NULL;
 		waitpid(kid, &i, 0);
 		imFree(c);
+		free(command);
+                command = NULL;
 	}
 	return (WEXITSTATUS(i));
 }

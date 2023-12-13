@@ -109,4 +109,5 @@ void _perror(char *tag, char *c, int ind)
 	write(STDERR_FILENO, error, _strlen(error));
 
 	free(indice);
+	indice = NULL;
 }

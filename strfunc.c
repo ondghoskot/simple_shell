@@ -90,7 +90,7 @@ char *_strcat(char *dest, char *src)
 		dest[i + j] = src[j];
 		j++;
 	}
-	dest[j + i + 1] = '\0';
+	dest[i + j] = '\0';
 	return (dest);
 }
 
