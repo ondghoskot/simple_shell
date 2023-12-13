@@ -24,6 +24,7 @@ return (dest);
 /**
  * _strcat - a function that cat a string
  * Return: dest of the string
+ * @dest: this is a dest string
  * @src: this is the char
  */
 char *_strcat(char *dest, char *src)

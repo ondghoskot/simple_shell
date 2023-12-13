@@ -5,7 +5,7 @@
  * @arg: an argument
  * Return: NULL if false, env if true
  */
- 
+
 int gettheenv(char **arg)
 {
 char *temp;
@@ -13,7 +13,7 @@ char *pass;
 char *val;
 char *viron;
 int i = 0;
-while(environ[i])
+while (environ[i])
 {
 temp = _strdup(environ[i]);
 pass = strtok(temp, "=");
@@ -35,8 +35,8 @@ return (NULL);
  * @c: pointer to given command
  * Return: exit status
  */
- 
-int getpath(char **c)
+
+int getenvpath(char **c)
 {
 struct stc src;
 char *path;
@@ -52,7 +52,7 @@ return (result);
 
 path = gettheenv("PATH");
 folder = strtok(path, ":");
-while(folder)
+while (folder)
 {
 command = malloc(_strlen(folder) + _strlen(c) + 2);
 if (command)
@@ -78,7 +78,7 @@ return (NULL);
  * @thepath: is the path to handle
  * Return: exit status
  */
- 
+
 char *hPath(char *thepath)
 {
 int i = 0;
