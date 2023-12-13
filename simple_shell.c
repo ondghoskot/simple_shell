@@ -30,6 +30,7 @@ if (bccheck(c[0]))
 {
 bhcmd(c, &i);
 }
+else
 i = executer(c, av, ind);
 }
 return (0);
