@@ -26,10 +26,12 @@ if (c == NULL)
 {
 continue;
 }
-if (bccheck(c[0]))
-{
-bhcmd(c, &i);
-}
+/**
+ * if (bccheck(c[0]))
+ * {
+ * bhcmd(c, &i);
+ * }
+*/
 i = executer(c, av, ind);
 }
 return (0);
