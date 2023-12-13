@@ -24,32 +24,6 @@ return (0);
 }
 
 /**
- * bhcmd - a function that handle checked builtin cmds
- * Return: an int type
- * @hbcmd: the command we need to check
- * @st: the exit status
- */
-void bhcmd(char **hbcmd, int *st)
-{
-if (_strcmp(hbcmd[0], "env") == 0)
-printenv(st, hbcmd);
-else if (_strcmp(hbcmd[0], "exit") == 0)
-exitTheShell(st, hbcmd);
-}
-
-/**
- * exitTheShell - a function that exit the sshell
- * Return: an int type
- * @exitcmd: the command we need to free
- * @st: the status of the exit command
- */
-void exitTheShell(int *st, char **exitcmd)
-{
-imFree(exitcmd);
-exit(*st);
-}
-
-/**
  * printenv - a function that exit the sshell
  * Return: an int type
  * @prtcmd: the command to free
@@ -66,4 +40,30 @@ j++;
 }
 (*st) = 0;
 imFree(prtcmd);
+}
+
+/**
+ * exitTheShell - a function that exit the sshell
+ * Return: an int type
+ * @exitcmd: the command we need to free
+ * @st: the status of the exit command
+ */
+void exitTheShell(int *st, char **exitcmd)
+{
+imFree(exitcmd);
+exit(*st);
+}
+
+/**
+ * bhcmd - a function that handle checked builtin cmds
+ * Return: an int type
+ * @hbcmd: the command we need to check
+ * @st: the exit status
+ */
+void bhcmd(char **hbcmd, int *st)
+{
+if (_strcmp(hbcmd[0], "env") == 0)
+printenv(st, hbcmd);
+else if (_strcmp(hbcmd[0], "exit") == 0)
+exitTheShell(st, hbcmd);
 }
