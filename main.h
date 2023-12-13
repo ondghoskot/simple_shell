@@ -20,4 +20,11 @@ int executer(char **c, char **argv);
 void ppr(char *c, size_t len);
 void imFree(char **sa);
 
+char *_strcpy(char *dest, char *src);
+int getenvpath(char **c);
+char *_strcat(char *dest, char *src);
+int _strlen(char *str);
+int gettheenv(char **arg);
+char *hPath(char *thepath);
+
 #endif

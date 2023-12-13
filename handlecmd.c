@@ -51,6 +51,10 @@ return (result);
 }
 
 path = gettheenv("PATH");
+if (!path)
+{
+return (NULL);
+}
 folder = strtok(path, ":");
 while (folder)
 {
