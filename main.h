@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <stdbool.h>
+#include <sys/stat.h>
 
 extern char **environ;
 
@@ -21,10 +21,10 @@ void ppr(char *c, size_t len);
 void imFree(char **sa);
 
 char *_strcpy(char *dest, char *src);
-int getenvpath(char **c);
+char *getenvpath(char *c);
 char *_strcat(char *dest, char *src);
 int _strlen(char *str);
-int gettheenv(char **arg);
+char *gettheenv(char *arg);
 char *hPath(char *thepath);
 
 #endif
