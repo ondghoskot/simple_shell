@@ -32,7 +32,7 @@ int executer(char **c, char **argv, int ind)
 		waitpid(kid, &i, 0);
 		imFree(c);
 		free(command);
-                command = NULL;
+		command = NULL;
 	}
 	return (WEXITSTATUS(i));
 }
