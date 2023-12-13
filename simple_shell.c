@@ -28,7 +28,7 @@ continue;
 }
 if (bccheck(c[0]))
 {
-bhcmd(c, av, &i, ind);
+bhcmd(c, &i);
 }
 else
 {

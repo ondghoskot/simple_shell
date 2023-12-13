@@ -33,4 +33,10 @@ char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int _strlen(char *str);
 
+/* builtin cmds funcs */
+int bccheck(char *cmd);
+void bhcmd(char **hbcmd, int *st);
+void exitTheShell(int *st, char **exitcmd);
+void printenv(int *st, char **prtcmd);
+
 #endif
