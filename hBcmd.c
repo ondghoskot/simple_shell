@@ -27,7 +27,6 @@ return (0);
 /**
  * printenv - a function that exit the sshell
  * Return: an int type
- * @prtcmd: the command to free
  * @st: the status of the command
  */
 void printenv(int *st)
