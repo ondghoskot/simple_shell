@@ -37,6 +37,6 @@ int _strlen(char *str);
 int bccheck(char *cmd);
 void bhcmd(char **hbcmd, int *st);
 void exitTheShell(int *st, char **exitcmd);
-void printenv(int *st, char **prtcmd);
+void printenv(int *st);
 
 #endif

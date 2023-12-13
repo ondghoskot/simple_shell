@@ -30,7 +30,7 @@ return (0);
  * @prtcmd: the command to free
  * @st: the status of the command
  */
-void printenv(int *st, char **prtcmd)
+void printenv(int *st)
 {
 int j = 0;
 while (environ[j])
@@ -40,7 +40,6 @@ ppr("\n", 1);
 j++;
 }
 (*st) = 0;
-imFree(prtcmd);
 }
 
 /**
@@ -64,7 +63,7 @@ exit(*st);
 void bhcmd(char **hbcmd, int *st)
 {
 if (_strcmp(hbcmd[0], "env") == 0)
-printenv(st, hbcmd);
+printenv(st);
 else if (_strcmp(hbcmd[0], "exit") == 0)
 exitTheShell(st, hbcmd);
 }
