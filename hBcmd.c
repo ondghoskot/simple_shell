@@ -8,19 +8,19 @@
 
 int bccheck(char *cmd)
 {
-char *bcmd[] = {
-"exit", "env", "setenv", "cd", NULL
-};
-int i = 0;
+	char *bcmd[] = {
+	"exit", "env", "setenv", "cd", NULL
+	};
+	int i = 0;
 
-while (bcmd[i])
-{
-if (_strcmp(cmd, bcmd[i]) == 0)
-{
-return (1);
-}
-}
-return (0);
+	while (bcmd[i])
+	{
+		if (_strcmp(cmd, bcmd[i]) == 0)
+		{
+			return (1);
+		}
+	}
+	return (0);
 }
 
 /**
@@ -31,10 +31,10 @@ return (0);
  */
 void bhcmd(char **hbcmd, int *st)
 {
-if (_strcmp(hbcmd[0], "env") == 0)
-printenv(st, hbcmd);
-else if (_strcmp(hbcmd[0], "exit") == 0)
-exitTheShell(st, hbcmd);
+	if (_strcmp(hbcmd[0], "env") == 0)
+		printenv(st, hbcmd);
+	else if (_strcmp(hbcmd[0], "exit") == 0)
+		exitTheShell(st, hbcmd);
 }
 
 /**
