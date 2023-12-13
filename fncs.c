@@ -33,49 +33,79 @@ void imFree(char **sa)
 }
 
 /**
- * _strcmp - compares lexic of two strings
- * @s1: first string
- * @s2: string to compare to
- * Return: s1 - s2
+ * hPath - function that handles a path command
+ * @thepath: is the path to handle
+ * Return: exit status
  */
-int _strcmp(char *s1, char *s2)
+
+char *hPath(char *thepath)
 {
 	int i = 0;
+	struct stat temp;
 
-	while (s1[i] != '\0' && s2[i] != '\0')
+	for (; thepath[i]; i++)
 	{
-		if (s1[i] != s2[i])
-			break;
-		i++;
+		if ((thepath[i] == '/') && (stat(thepath, &temp) == 0))
+			return (_strdup(thepath));
+
 	}
-	return (s1[i] - s2[i]);
+	return (NULL);
 }
 
 /**
- * _strdup - duplicates a string
- * @src: string to duplicate
- * Return: pointer to the string dup
+ * intoa - function that converts integer to ascii equivalent
+ * @i: integer to convert
+ * Return: string of ascii equivs
  */
-char *_strdup(char *src)
+char *intoa(int i)
 {
-	int i;
-	int size = 0;
-	char *ptr = NULL;
+	char frame[26];
+	int n, first, last;
+	char temp;
 
-	i = 0;
-	if (src	== NULL)
-		return (NULL);
-	while (src[size] != '\0')
-		size++;
-	ptr = (char *) malloc((size + 1) * sizeof(char));
-
-	if (ptr != NULL)
+	n = 0;
+	if (i == 0)
+		frame[n++] = '0';
+	while (i > 0)
 	{
-		while (i <= size)
-		{
-			ptr[i] = src[i];
-			i++;
-		}
+		frame[n++] = (i % 10) + '0';
+		n = n / 10;
 	}
-	return (ptr);
+	frame[n] = '\0';
+
+	first = 0;
+	last = n - 1;
+	while (first < last)
+	{
+		temp = frame[first];
+		frame[first] = frame[last];
+		frame[last] = temp;
+		first ++;
+		last --;
+	}
+
+	return (_strdup(frame));
+}
+
+/**
+ * _perror - function that prints the error message
+ * @tag: string of the shell's name
+ * @c: string of a command
+ * @ind: string of the index of the error message
+ * Return: nothing
+ */
+void _perror(char *tag, char *c, int ind)
+{
+	char *indice;
+	char error[] = ": not found\n";
+
+	indice = intoa(ind);
+
+	write(STDERR_FILENO, tag, _strlen(tag));
+	write(STDERR_FILENO, ": ", 2);
+	write(STDERR_FILENO, indice, _strlen(indice));
+	write(STDERR_FILENO, ": ", 2);
+	write(STDERR_FILENO, c, _strlen(c));
+	write(STDERR_FILENO, error, _strlen(error));
+	free(indice);
 }

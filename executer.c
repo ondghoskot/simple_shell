@@ -6,20 +6,30 @@
  * @argv: CLA vector of args
  * Return: exit status
  */
-int executer(char **c, char **argv)
+int executer(char **c, char **argv, int ind)
 {
 	pid_t kid;
 	int i = 0;
+	char *command;
 
-	kid = fork();
-	if ((kid == 0) && (execve(c[0], c, environ) == -1))
+	command = getenvpath(c[0]);
+	if (command == NULL)
 	{
-		perror(argv[0]);
+		_perror(argv[0], c[0], ind);
 		imFree(c);
-		exit(127);
+		return (127);
+	}
+	kid = fork();
+	if ((kid == 0) && (execve(command, c, environ) == -1))
+	{
+		free(command);
+		command = NULL;
+		imFree(c);
 	}
 	else
 	{
+		free(command);
+		command = NULL;
 		waitpid(kid, &i, 0);
 		imFree(c);
 	}

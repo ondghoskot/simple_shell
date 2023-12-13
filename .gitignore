@@ -51,7 +51,3 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Files not debugged yet
-hbtn_ls
-handlecmd.c
-strfunc.c
