@@ -19,6 +19,7 @@ if (_strcmp(cmd, bcmd[i]) == 0)
 {
 return (1);
 }
+i++;
 }
 return (0);
 }
@@ -31,10 +32,6 @@ return (0);
  */
 void printenv(int *st, char **prtcmd)
 {
-if (_strcmp(hbcmd[0], "env") == 0)
-printenv(st, hbcmd);
-else if (_strcmp(hbcmd[0], "exit") == 0)
-exitTheShell(st, hbcmd);
 int j = 0;
 while (environ[j])
 {
