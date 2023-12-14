@@ -8,37 +8,38 @@
 
 int bccheck(char *cmd)
 {
-char *bcmd[] = {
-"exit", "env", "setenv", "cd", NULL
-};
-int i = 0;
+	char *bcmd[] = {
+	"exit", "env", "setenv", "cd", NULL
+	};
+	int i = 0;
 
-while (bcmd[i])
-{
-if (_strcmp(cmd, bcmd[i]) == 0)
-{
-return (1);
-}
-i++;
-}
-return (0);
+	while (bcmd[i])
+	{
+		if (_strcmp(cmd, bcmd[i]) == 0)
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
 
 /**
- * printenv - a function that exit the sshell
+ * printenv - a function that prints the environment
  * Return: an int type
  * @st: the status of the command
  */
 void printenv(int *st)
 {
-int j = 0;
-while (environ[j])
-{
-ppr(environ[j], _strlen(environ[j]));
-ppr("\n", 1);
-j++;
-}
-(*st) = 0;
+	int j = 0;
+
+	while (environ[j])
+	{
+		ppr(environ[j], _strlen(environ[j]));
+		ppr("\n", 1);
+		j++;
+	}
+	(*st) = 0;
 }
 
 /**
@@ -49,8 +50,8 @@ j++;
  */
 void exitTheShell(int *st, char **exitcmd)
 {
-imFree(exitcmd);
-exit(*st);
+	imFree(exitcmd);
+	exit(*st);
 }
 
 /**
@@ -61,8 +62,8 @@ exit(*st);
  */
 void bhcmd(char **hbcmd, int *st)
 {
-if (_strcmp(hbcmd[0], "env") == 0)
-printenv(st);
-else if (_strcmp(hbcmd[0], "exit") == 0)
-exitTheShell(st, hbcmd);
+	if (_strcmp(hbcmd[0], "env") == 0)
+		printenv(st);
+	else if (_strcmp(hbcmd[0], "exit") == 0)
+		exitTheShell(st, hbcmd);
 }
